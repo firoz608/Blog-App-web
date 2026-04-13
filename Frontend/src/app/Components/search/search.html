@@ -1,0 +1,104 @@
+
+
+
+<html>
+
+<head>
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet"> -->
+</head>
+
+<body>
+
+  <!--  LANDING PAGE  -->
+  <div class="page active" id="page-landing">
+
+   
+
+         <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="logo">
+        <div class="logo-icon">📝</div>
+        Mini Blog
+      </div>
+      <div class="nav-search">
+        <input type="text" class="search-input" placeholder="Search blog posts..." #txt (keyup.enter)="searchblog(txt.value)" />
+        <button class="search-btn" title="Search" (click)="searchblog(txt.value)" >
+          <fa-icon [icon]="search"></fa-icon>
+        </button>
+      </div>
+
+      <div class="nav-btns">
+        <a routerLink="/login"> <button class="btn btn-ghost" *ngIf="!isLoggedIn">Log In</button></a>
+        <button class="btn btn-teal" *ngIf="isLoggedIn" (click)="logoutfunc()">Log Out</button>
+        <a routerLink="/registration"> <button class="btn btn-teal" *ngIf="!isLoggedIn">Get Started</button></a>
+        <button class="btn btn-ghost" *ngIf="isLoggedIn">{{getAuthorName()}}</button>
+
+        <div class="profile-dropdown" *ngIf="isLoggedIn">
+          <button class="profile-dropdown-btn" (click)="toggleProfileMenu()">
+            <img [src]="profileImage" class="navprofileicon" alt="">
+          </button>
+          <div class="dropdown-menu" *ngIf="isProfileMenuOpen">
+            <a routerLink="/settings" class="dropdown-item">
+              <fa-icon [icon]="settings"></fa-icon>
+              Settings
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+
+
+
+
+    <section class="posts-preview">
+      <div class="section-head" style="text-align:left;margin-bottom:2rem; margin-left: 20px;">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--ink);">All Posts</h2>
+      </div>
+      <a routerLink="/dashboard" class="btn  flex justify-start">← Back to Dashboard</a>
+      <div class="posts-grid">
+        <div class="mini-card" *ngFor="let blog of searchblogPosts">
+
+          <img [src]="blog?.image ? apiUrl + blog.image : 'assets/default-upld-image2.png'" alt="">
+          <div class="mini-card-body">
+            <div class="mini-cat">{{blog.title}}</div>
+            <div class="mini-title">{{blog.content}}</div>
+            <div class="mini-meta"> <span (click)="likeBlog(blog)">by {{blog.author}} ❤️ {{blog.likes}} </span>
+              <span (click)="commentblog(blog.id)">💬</span>
+              <span (click)="saveBlog(blog)">⛊</span>
+            </div>
+            <span class="mini-meta">{{blog.createdDate}}</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+   
+    <!-- CTA -->
+    <section class="cta-section">
+      <h2>Ready to start your blog?</h2>
+      <p>Join thousands of writers sharing their stories on Mini Blog. It's free forever.</p>
+    
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="logo">📝 Mini Blog</div>
+      <div>
+        <span>© 2026 Mini Blog. All rights reserved.</span>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </footer>
+
+  </div><!-- end landing -->
+
+
+
+
+</body>
+
+</html>

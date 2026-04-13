@@ -1,0 +1,130 @@
+
+
+<html>
+    <head>
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        
+        <!--  AUTH PAGE  -->
+<div class="page active" id="page-auth">
+  <div class="auth-page">
+
+    <!-- LEFT PANEL -->
+    <div class="auth-left">
+      <div class="auth-brand">
+        <div class="auth-brand-logo">📝</div>
+        <h2>Mini Blog</h2>
+        <p>Your creative space to write, share images, and connect with readers worldwide.</p>
+      </div>
+      <div class="auth-features">
+        <div class="auth-feat-item">
+          <div class="auth-feat-icon">🖼️</div>
+          <div class="auth-feat-text">
+            <strong>Upload Images Easily</strong>
+            <span>Drag & drop photos into any post</span>
+          </div>
+        </div>
+        <div class="auth-feat-item">
+          <div class="auth-feat-icon">💬</div>
+          <div class="auth-feat-text">
+            <strong>Comments & Likes</strong>
+            <span>Engage with your readers</span>
+          </div>
+        </div>
+        <div class="auth-feat-item">
+          <div class="auth-feat-icon">👤</div>
+          <div class="auth-feat-text">
+            <strong>Beautiful Profile</strong>
+            <span>Showcase your work and stats</span>
+          </div>
+        </div>
+        <div class="auth-feat-item">
+          <div class="auth-feat-icon">📊</div>
+          <div class="auth-feat-text">
+            <strong>Analytics Dashboard</strong>
+            <span>Track views, likes & followers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL (FORM) -->
+    <div class="auth-right">
+      <div class="auth-form-wrap">
+
+        <!-- BACK LINK -->
+        <div style="margin-bottom:1.5rem;">
+          <a routerLink="/dashboard"><button onclick="showPage('page-landing')" style="background:none;border:none;cursor:pointer;color:var(--teal);font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:600;display:flex;align-items:center;gap:0.3rem;">
+            ← Back to Home
+          </button></a>
+        </div>
+
+        <!-- TABS -->
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">Sign In</button>
+          <a routerLink="/registration"><button class="auth-tab" id="tab-register"  >Create Account</button></a>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <div class="form-panel active" id="panel-login">
+          <div class="auth-form-title">Welcome back 👋</div>
+          <div class="auth-form-sub">Sign in to continue to Mini Blog</div>
+
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+                          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <div class="input-wrap">
+              <span class="input-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+              <input type="email" formControlName="email" class="form-input" placeholder="you@example.com" id="login-email">
+              <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+                    Enter valid email
+                </div>
+            </div>
+          </div>
+                
+                
+
+
+
+
+          
+
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="input-wrap">
+              <span class="input-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+              <input class="form-input" type="password" placeholder="Enter your password" id="login-pass" formControlName="password">
+            </div>
+             <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+                    Password must be at least 6 characters
+                </div>
+          </div>
+        
+            </form>
+
+
+          <button class="btn-submit" (click)="onSubmit()">Sign In to Mini Blog</button>
+
+          <div class="auth-switch">
+            Don't have an account? <a routerLink="/registration">Create one free</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- end auth -->
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+    </body>
+</html>
+
+

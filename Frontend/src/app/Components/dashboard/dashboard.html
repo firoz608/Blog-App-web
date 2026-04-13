@@ -1,0 +1,221 @@
+
+<html>
+
+<head>
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet"> -->
+</head>
+
+<body>
+
+  <!-- LANDING PAGE  -->
+  <div class="page active" id="page-landing">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="logo">
+        <div class="logo-icon">📝</div>
+        Mini Blog
+      </div>
+      <div class="nav-search">
+        <input type="text" class="search-input" placeholder="Search blog posts..." #txt
+          (keyup.enter)="searchblog(txt.value)" />
+        <button class="search-btn" title="Search" (click)="searchblog(txt.value)">
+          <fa-icon [icon]="search"></fa-icon>
+        </button>
+      </div>
+      <div class="nav-btns">
+        <a routerLink="/login"> <button class="btn btn-ghost" *ngIf="!isLoggedIn">Log In</button></a>
+        <button class="btn btn-teal" *ngIf="isLoggedIn" (click)="logoutfunc()">Log Out</button>
+        <a routerLink="/registration"> <button class="btn btn-teal" *ngIf="!isLoggedIn">Get Started</button></a>
+        <button class="btn btn-ghost" *ngIf="isLoggedIn">{{getAuthorName()}}</button>
+
+        <div class="profile-dropdown" *ngIf="isLoggedIn">
+          <button class="profile-dropdown-btn" (click)="toggleProfileMenu()">
+            <img [src]="profileImage" class="navprofileicon" alt="">
+          </button>
+          <div class="dropdown-menu" *ngIf="isProfileMenuOpen">
+            <a routerLink="/settings" class="dropdown-item">
+              <fa-icon [icon]="settings"></fa-icon>
+              Settings
+            </a>
+          </div>
+        </div>
+
+        
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-tag"><span></span> Blog Platform for Creators</div>
+        <h1>Share your <em>story</em> with the world</h1>
+        <p>Mini Blog is the perfect place to write, upload images, connect with readers, and grow your audience — all in
+          one beautiful platform.</p>
+        <div class="hero-actions">
+          <a routerLink="/login"><button class="btn btn-teal btn-lg" *ngIf="!isLoggedIn">Start Writing Free
+              →</button></a>
+          <button class="btn btn-teal btn-lg" *ngIf="isLoggedIn" (click)="openPopup()">Write Blog</button>
+
+          <!--write blog Popup Overlay -->
+          <div class="overlay" *ngIf="showPopup">
+            <div class="popup">
+
+              <h2>Write Blog</h2>
+
+              <form [formGroup]="blogForm" (ngSubmit)="submitBlog()">
+
+                <input type="text" placeholder="Title" formControlName="title">
+
+                <textarea rows="6" placeholder="Write your blog..." formControlName="content"></textarea>
+
+                <div class="image-upload">
+
+                  <!-- Preview -->
+                  <div class="preview">
+                    <img [src]="imagePreview" alt="Preview">
+                  </div>
+
+                  <!-- Upload Button -->
+                  <span>
+                    <label class="upload-btn">
+                      Select Image
+                      <input type="file" (change)="onImageSelect($event)" hidden>
+                    </label>
+                  </span>
+
+                </div>
+
+                <div class="btns">
+                  <button type="submit" class="btn-ghost2">Publish</button>
+                  <button type="button" class="btn-ghost2" (click)="closePopup()">Cancel</button>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+
+          <a routerLink="/login"><button class="btn btn-outline btn-lg" *ngIf="!isLoggedIn">Sign In</button></a>
+        </div>
+       
+      </div>
+
+      <div class="hero-right">
+        <div class="floating-card fc-top">
+          <span>✍️</span> New post published!
+        </div>
+        <div class="hero-card-main" *ngIf="latestBlog ">
+          <img [src]="latestBlog?.image ? apiUrl + latestBlog.image : 'assets/default-upld-image2.png'" alt="">
+
+          <div class="hero-card-body">
+            <span class="hero-card-tag">{{latestBlog.title}}</span>
+            <div class="hero-card-title">{{latestBlog.content}}</div>
+            <div class="hero-card-meta">
+              <img [src]=" latestblogprofileImage" alt="">
+              <span>by {{latestBlog.author}} ❤️ {{latestBlog.likes}}</span>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+      <div class="features-inner">
+        <div class="section-head">
+          <h2>Everything you need to blog</h2>
+          <p>A powerful yet simple platform built for writers, photographers, and storytellers.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card" (click)="openPopup()">
+            <div class="feature-icon">🖼️</div>
+            <div class="feature-title">Image Uploads</div>
+            <div class="feature-desc">Upload stunning photos directly to your posts. Instant preview, and beautiful
+              display.</div>
+          </div>
+          <div class="feature-card" (click)="gotosearchblog()">
+            <div class="feature-icon">🔍</div>
+            <div class="feature-title">Powerful Search</div>
+            <div class="feature-desc">Find any post instantly with a fast, smart search that searches titles, content,
+              and authors.</div>
+          </div>
+          <div class="feature-card" (click)="gotoallposts()">
+          <div class="feature-icon">💬</div>
+          <div class="feature-title">Comments & Reactions</div>
+          <div class="feature-desc">Engage your readers with a fully interactive comment system. Like, reply, and build a community around your writing.</div>
+        </div>
+
+          <div class="feature-card" (click)="gotoliked()">
+            <div class="feature-icon">❤️</div>
+            <div class="feature-title">Liked Blogs</div>
+            <div class="feature-desc">View all your liked blog posts</div>
+          </div>
+          <div class="feature-card" (click)="gotosaved()">
+            <div class="feature-icon">🗂️</div>
+            <div class="feature-title">Saved Blogs</div>
+            <div class="feature-desc">Access your saved blog posts</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <div class="feature-title">Mobile Ready</div>
+            <div class="feature-desc">Write and read on any device. Mini Blog is fully responsive and looks stunning on
+              phones and tablets.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECENT POSTS -->
+    <section class="posts-preview">
+      <div class="section-head" style="text-align:left;margin-bottom:2rem;">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--ink);">Trending Posts</h2>
+      </div>
+      <div class="posts-grid">
+        <div class="mini-card" *ngFor="let blog of blogPosts">
+          <img [src]="blog?.image ? apiUrl + blog.image : 'assets/default-upld-image2.png'" alt="">
+          <div class="mini-card-body">
+            <div class="mini-cat">{{blog.title}}</div>
+            <div class="mini-title">{{blog.content}}</div>
+            <div class="mini-meta"> <span (click)="likeBlog(blog)">by {{blog.author}} ❤️ {{blog.likes}} </span>
+              <span (click)="commentblog(blog.id)">💬</span>
+              <span (click)="saveBlog(blog)">⛊</span>
+            </div>
+            <span class="mini-meta">{{blog.createdDate}}</span>
+          </div>
+        </div>
+      </div>
+     
+
+    </section>
+
+
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <h2>Ready to start your blog?</h2>
+      <p>Join thousands of writers sharing their stories on Mini Blog. It's free forever.</p>
+      <button class="btn btn-white btn-lg" *ngIf="!isLoggedIn">Create Free Account →</button>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="logo">📝 Mini Blog</div>
+      <div>
+        <span>© 2026 Mini Blog. All rights reserved.</span>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </footer>
+
+  </div><!-- end landing -->
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+:root {
+  --teal: #00BFA5;
+  --teal-dark: #009688;
+  --teal-deeper: #00796B;
+  --white: #FFFFFF;
+  --light: #F0FAFA;
+  --ink: #1E2D2D;
+  --muted: #6B8080;
+  --border: #C8E6E3;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

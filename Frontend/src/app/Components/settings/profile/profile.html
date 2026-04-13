@@ -1,0 +1,34 @@
+<div class="setting-body">
+    <div class="settings-dashboard">
+           <h2>Profile</h2>
+           <a routerLink="/settings" class="btn  flex justify-start">← Back to Settings</a>
+
+    <section class="profile-picture-section">
+        <h3>Update profile picture</h3>
+        
+        <div class="picture-wrapper">
+            <!-- current picture -->
+            <img
+                id="profilePicturePreview"
+                [src]="profileImage" width="120" height="120" alt="Profile Picture"
+            />
+        </div>
+        <input 
+            id="profilePictureInput"
+            accept="image/*" (change)="onImageSelected($event)" type="file"/>
+        <button id="updatePictureButton" (click)="uploadImage()">Upload Profile</button>
+    </section>
+
+    <section class="profile-name-section">
+        <h3>Change profile name</h3>
+        <label for="profileNameInput">Name</label>
+        <input
+            type="text"
+            id="profileNameInput"
+            placeholder="Enter your name"
+        />
+        <button (click)="updateName()" id="updateNameButton">Save name</button>
+    </section>
+    </div>
+ 
+</div>

@@ -1,0 +1,51 @@
+
+<div class="settings-dashboard">
+    <div class="settings-container">
+        <div class="settings-header">
+            <h1 >Settings Dashboard</h1>
+            <a routerLink="/dashboard" class="btn btn-secondary flex justify-start">← Back to Dashboard</a>
+        </div>
+
+        <div class="settings-grid">
+            <!-- Liked Blogs -->
+            <div class="settings-card">
+                <div class="card-icon">
+                    <i class="icon-heart"></i>
+                </div>
+                <h2 class="settng-title">Liked Blogs</h2>
+                <p class="setting-para">View all your liked blog posts</p>
+                <button class="btn btn-teal" (click)="likedblog()">View Liked Blogs</button> 
+            </div>
+
+            <!-- Saved Blogs -->
+            <div class="settings-card">
+                <div class="card-icon">
+                    <i class="icon-bookmark"></i>
+                </div>
+                <h2 class="settng-title">Saved Blogs</h2>
+                <p class="setting-para">Access your saved blog posts</p>
+                <button class="btn btn-teal" (click)="savedBlog()">View Saved Blogs</button>
+            </div>
+
+            <!-- Manage Blogs -->
+            <div class="settings-card">
+                <div class="card-icon">
+                    <i class="icon-edit"></i>
+                </div>
+                <h2 class="settng-title">Manage Blogs</h2>
+                <p class="setting-para">Edit, delete, or publish your blogs</p>
+                <button class="btn btn-teal" (click)="manageblog()">Manage Blogs</button>
+            </div>
+
+            <!-- Profile Settings -->
+            <div class="settings-card">
+                <div class="card-icon">
+                    <i class="icon-user"></i>
+                </div>
+                <h2 class="settng-title">Profile Settings</h2>
+                <p class="setting-para">Update your profile information</p>
+                <button class="btn btn-teal" (click)="profile()">Edit Profile</button>
+            </div>
+        </div>
+    </div>
+</div>

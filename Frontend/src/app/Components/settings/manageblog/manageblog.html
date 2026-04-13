@@ -1,0 +1,93 @@
+<html>
+
+<head>
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet"> -->
+</head>
+
+<body>
+
+  <!-- ===== LANDING PAGE ===== -->
+  <div class="page active" id="page-landing">
+
+
+
+    <section class="posts-preview">
+      <div class="section-head" style="text-align:left;margin-bottom:2rem; margin-left: 20px;">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--ink);">Your Post</h2>
+      </div>
+      <a routerLink="/settings" class="btn  flex justify-start">← Back to Settings</a>
+      <div class="posts-grid">
+        <div class="mini-card" *ngFor="let blog of blogPosts">
+
+          <img [src]="blog?.image ? apiUrl + blog.image : 'assets/default-upld-image2.png'" alt="">
+          <div class="mini-card-body">
+            <div class="mini-cat">{{blog.title}}</div>
+            <div class="mini-title">{{blog.content}}</div>
+            <div class="mini-meta">
+              <span>by {{blog.author}} </span>
+              <!-- <span (click)="commentblog(blog)">💬</span> -->
+              <!-- <span (click)="saveBlog(blog)">⛊  </span> -->
+            </div>
+            <span class="mini-meta">{{blog.createdDate}}</span>
+          </div>
+          <div class="blog-btns">
+            <button class="btn btn-teal" (click)="openPopup(blog.id)">Update Blog</button>
+            <button class="btn btn-ghost" (click)="deleteblog(blog.id)">Delete Blog</button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Update blog -->
+      <div class="overlay" *ngIf="showPopup">
+        <div class="popup">
+
+          <h2>Write Blog</h2>
+
+          <form [formGroup]="blogForm" (ngSubmit)="submitBlog()">
+
+            <input type="text" placeholder="Title" formControlName="title">
+
+            <textarea rows="6" placeholder="Write your blog..." formControlName="content"></textarea>
+
+            <div class="image-upload">
+              
+              <!-- Preview -->
+              <div class="preview" *ngIf="imagePreview">
+                <img [src]="imagePreview" alt="Preview">
+              </div>
+
+              <!-- Upload Button -->
+              <label class="upload-btn">
+                Select Image
+                <input type="file" (change)="onImageSelect($event)" hidden>
+              </label>
+
+
+            </div>
+
+            <div class="btns">
+              <button type="submit" class="btn-ghost2" (click)="submitBlog()">Publish</button>
+              <button type="button" class="btn-ghost2" (click)="closePopup()">Cancel</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+
+    </section>
+
+
+
+
+
+  </div><!-- end landing -->
+
+
+
+
+</body>
+
+</html>

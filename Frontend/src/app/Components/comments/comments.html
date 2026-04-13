@@ -1,0 +1,172 @@
+<html>
+
+<head>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet"> -->
+</head>
+
+<body>
+
+    
+    <div class="page active" id="page-landing">
+
+
+
+
+
+
+        <section class="posts-preview">
+            <div class="section-head" style="text-align:left;margin-bottom:2rem; margin-left: 20px;">
+                <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--ink);">Comment</h2>
+            </div>
+            <a (click)="gotoAllpost()" class="btn  flex justify-start">← Back to All post</a>
+            <div class="posts-grid">
+                <div class="mini-card" *ngFor="let blog of blogPost">
+
+                    <img [src]="blog?.image ? apiUrl + blog.image : 'assets/default-upld-image2.png'" alt="">
+                    <div class="mini-card-body">
+                        <div class="mini-cat">{{blog.title}}</div>
+                        <div class="mini-title">{{blog.content}}</div>
+                        <div class="mini-meta">
+                            <span>by {{blog.author}} </span>
+                        
+                        </div>
+                        <span class="mini-meta">{{blog.createdDate}}</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="comment-section">
+
+               
+                <!-- COMMENT INPUT BOX -->
+                
+                <div class="comment-input-box">
+                   <textarea [(ngModel)]="newComment" placeholder="Write a comment..." rows="3" class="comment-textarea"></textarea>
+                    <button class="comment-btn" (click)="addComment()">
+                        Post Comment
+                    </button>
+                </div>
+
+                
+                <!-- LOADING -->
+             
+                <div *ngIf="loading" class="loading-box">
+                    Loading comments...
+                </div>
+
+               
+                <!-- NO COMMENTS -->
+               
+                <div *ngIf="!loading && comments.length === 0" class="no-comments">
+                    No comments yet. Be the first to comment 💬
+                </div>
+
+                
+                <!-- COMMENTS LIST -->
+             
+                <div *ngFor="let comment of comments" class="comment-card">
+
+                    <!-- Main Comment -->
+                    <div class="comment-main">
+                        <div class="comment-header">
+                            <div class="user-info">
+                                <div class="avatar">
+                                    {{ comment.userName ? (comment.userName[0] | uppercase) : 'U' }}
+                                </div>
+
+                                <div>
+                                    <h4 class="user-name">{{ comment.userName || 'User' }}</h4>
+                                    <small class="comment-date">{{ formatDate(comment.createdAt) }}</small>
+                                </div>
+                            </div>
+
+                            <button *ngIf="isMyComment(comment.userId)" class="delete-btn"
+                                (click)="deleteComment(comment.id)">
+                                Delete
+                            </button>
+                        </div>
+
+                        <p class="comment-content">{{ comment.content }}</p>
+
+                        <div class="comment-actions">
+                            <button class="action-btn" (click)="toggleReaction(comment.id)">
+                                {{ comment.isReacted ? 'Unlike' : 'Like' }} ({{ comment.reactionCount }})
+                            </button>
+
+                            <button class="action-btn" (click)="toggleReplyBox(comment)">
+                                Reply
+                            </button>
+                        </div>
+
+                        <!-- Reply Box -->
+                        <div *ngIf="comment.showReplyBox" class="reply-input-box">
+                            <textarea [(ngModel)]="comment.replyText" placeholder="Write a reply..." rows="2"
+                                class="reply-textarea">
+        </textarea>
+
+                            <div class="reply-buttons">
+                                <button class="reply-send-btn" (click)="addReply(comment)">
+                                    Reply
+                                </button>
+
+                                <button class="reply-cancel-btn" (click)="comment.showReplyBox = false">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <!-- REPLIES -->
+                   
+                    <div class="replies-container" *ngIf="comment.replies?.length > 0">
+
+                        <div *ngFor="let reply of comment.replies" class="reply-card">
+
+                            <div class="comment-header">
+                                <div class="user-info">
+                                    <div class="avatar small-avatar">
+                                        {{ reply.userName ? (reply.userName[0] | uppercase) : 'U' }}
+                                    </div>
+
+                                    <div>
+                                        <h5 class="user-name">{{ reply.userName || 'User' }}</h5>
+                                        <small class="comment-date">{{ formatDate(reply.createdAt) }}</small>
+                                    </div>
+                                </div>
+
+                                <button *ngIf="isMyComment(reply.userId)" class="delete-btn"
+                                    (click)="deleteComment(reply.id)">
+                                    Delete
+                                </button>
+                            </div>
+
+                            <p class="comment-content">{{ reply.content }}</p>
+
+                            <div class="comment-actions">
+                                <button class="action-btn" (click)="toggleReaction(reply.id)">
+                                    {{ reply.isReacted ? 'Unlike' : 'Like' }} ({{ reply.reactionCount }})
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>
