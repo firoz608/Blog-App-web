@@ -40,9 +40,12 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.WebHost.UseUrls("http://0.0.0.0:10000");
 var app = builder.Build();
 
+
+app.UseSwagger();
+app.UseSwaggerUI();
 // Middleware order matters!
 app.UseStaticFiles();
 
@@ -51,11 +54,7 @@ app.UseCors("AllowAll");
 app.UseAuthentication();   // ✅ FIRST
 app.UseAuthorization();    // ✅ SECOND
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
 
 // IMPORTANT: Disable HTTPS redirect on Render
 // app.UseHttpsRedirection();
