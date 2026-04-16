@@ -480,19 +480,112 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/Blog"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Blog"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Blog"
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Title": {
+                    "type": "string"
+                  },
+                  "Content": {
+                    "type": "string"
+                  },
+                  "Image": {
+                    "type": "string"
+                  },
+                  "Author": {
+                    "type": "string"
+                  },
+                  "CreatedDate": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "Likes": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Comments": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Saved": {
+                    "type": "boolean"
+                  },
+                  "UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "BlogLikes": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/BlogLike"
+                    }
+                  },
+                  "BlogSaves": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/SavedBlog"
+                    }
+                  },
+                  "CommentsList": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Comment"
+                    }
+                  },
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Title": {
+                  "style": "form"
+                },
+                "Content": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                },
+                "Author": {
+                  "style": "form"
+                },
+                "CreatedDate": {
+                  "style": "form"
+                },
+                "Likes": {
+                  "style": "form"
+                },
+                "Comments": {
+                  "style": "form"
+                },
+                "Saved": {
+                  "style": "form"
+                },
+                "UserId": {
+                  "style": "form"
+                },
+                "BlogLikes": {
+                  "style": "form"
+                },
+                "BlogSaves": {
+                  "style": "form"
+                },
+                "CommentsList": {
+                  "style": "form"
+                },
+                "file": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -638,39 +731,25 @@
         "tags": [
           "Comment"
         ],
-        "parameters": [
-          {
-            "name": "blogId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "userId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "content",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "parentCommentId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddCommentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddCommentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddCommentDto"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -944,6 +1023,29 @@
   },
   "components": {
     "schemas": {
+      "AddCommentDto": {
+        "type": "object",
+        "properties": {
+          "blogId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentCommentId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Blog": {
         "type": "object",
         "properties": {

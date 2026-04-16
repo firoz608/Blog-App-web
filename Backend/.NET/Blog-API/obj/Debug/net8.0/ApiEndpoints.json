@@ -266,9 +266,74 @@
         "IsRequired": true
       },
       {
-        "Name": "updatedBlog",
-        "Type": "Blog_API.Models.Blog",
-        "IsRequired": true
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Content",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Author",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CreatedDate",
+        "Type": "System.DateOnly",
+        "IsRequired": false
+      },
+      {
+        "Name": "Likes",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Comments",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Saved",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "BlogLikes",
+        "Type": "System.Collections.Generic.ICollection\u00601[[Blog_API.Models.BlogLike, Blog_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "BlogSaves",
+        "Type": "System.Collections.Generic.ICollection\u00601[[Blog_API.Models.SavedBlog, Blog_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "CommentsList",
+        "Type": "System.Collections.Generic.ICollection\u00601[[Blog_API.Models.Comment, Blog_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -382,24 +447,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "blogId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "userId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "content",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "parentCommentId",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
+        "Name": "dto",
+        "Type": "Blog_API.DTO.AddCommentDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

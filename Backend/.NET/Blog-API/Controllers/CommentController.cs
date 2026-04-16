@@ -1,4 +1,5 @@
 ﻿using Blog_API.Data;
+using Blog_API.DTO;
 using Blog_API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,51 +19,32 @@ public class CommentController : ControllerBase
     // ADD COMMENT / REPLY
     // =========================
     [HttpPost("add")]
-    public async Task<IActionResult> AddComment(int blogId, int userId, string content, int? parentCommentId = null)
+    public async Task<IActionResult> AddComment([FromBody] AddCommentDto dto)
     {
-        if (string.IsNullOrWhiteSpace(content))
+        if (string.IsNullOrWhiteSpace(dto.Content))
             return BadRequest(new { message = "Comment cannot be empty" });
 
-        var blogExists = await _context.Blogs.AnyAsync(b => b.Id == blogId);
+        var blogExists = await _context.Blogs.AnyAsync(b => b.Id == dto.BlogId);
         if (!blogExists)
             return BadRequest(new { message = "Blog not found" });
 
-        var userExists = await _context.Users.AnyAsync(u => u.Id == userId);
+        var userExists = await _context.Users.AnyAsync(u => u.Id == dto.UserId);
         if (!userExists)
             return BadRequest(new { message = "User not found" });
 
-        if (parentCommentId.HasValue)
-        {
-            var parentComment = await _context.Comments
-                .FirstOrDefaultAsync(c => c.Id == parentCommentId.Value);
-
-            if (parentComment == null)
-                return BadRequest(new { message = "Parent comment not found" });
-
-            // Optional but recommended:
-            // Only allow replies to main comments, not nested reply of reply
-            if (parentComment.ParentCommentId != null)
-                return BadRequest(new { message = "You can only reply to main comments" });
-        }
-
         var comment = new Comment
         {
-            BlogId = blogId,
-            UserId = userId,
-            Content = content.Trim(),
-            ParentCommentId = parentCommentId,
-            CreatedAt = DateTime.Now
+            BlogId = dto.BlogId,
+            UserId = dto.UserId,
+            Content = dto.Content.Trim(),
+            ParentCommentId = dto.ParentCommentId,
+            CreatedAt = DateTime.UtcNow
         };
 
         _context.Comments.Add(comment);
         await _context.SaveChangesAsync();
 
-        return Ok(new
-        {
-            message = parentCommentId.HasValue ? "Reply added successfully" : "Comment added successfully",
-            comment.Id,
-            comment.ParentCommentId
-        });
+        return Ok(new { message = "Comment added successfully", comment.Id });
     }
 
     // =========================

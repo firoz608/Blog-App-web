@@ -8,6 +8,7 @@ namespace Blog_API.Data
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<user> Users { get; set; }
+
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<SavedBlog> SavedBlogs { get; set; }
         public DbSet<Comment> Comments { get; set; }

@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\dto\\addcommentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:dto\\addcommentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\controllers\\commentreactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:controllers\\commentreactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\models\\commentreaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:models\\commentreaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:models\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\controllers\\commentreactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:controllers\\commentreactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,12 +35,40 @@
       "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:models\\blog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\controllers\\blogsavecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:controllers\\blogsavecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\models\\bloglike.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:models\\bloglike.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\blog_api.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:blog_api.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\blog_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:blog_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\models\\savedblog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,36 +86,136 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "AddCommentDto.cs",
+              "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\DTO\\AddCommentDto.cs",
+              "RelativeDocumentMoniker": "DTO\\AddCommentDto.cs",
+              "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\DTO\\AddCommentDto.cs",
+              "RelativeToolTip": "DTO\\AddCommentDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T04:34:59.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "user.cs",
+              "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Models\\user.cs",
+              "RelativeDocumentMoniker": "Models\\user.cs",
+              "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Models\\user.cs",
+              "RelativeToolTip": "Models\\user.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T07:56:54.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T07:31:17.324Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-14T07:30:35.021Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Blog_API",
+              "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Blog_API.csproj",
+              "RelativeDocumentMoniker": "Blog_API.csproj",
+              "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Blog_API.csproj",
+              "RelativeToolTip": "Blog_API.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-14T07:30:29.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-14T07:12:16.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Blog_API.csproj",
+              "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Blog_API.csproj",
+              "RelativeDocumentMoniker": "Blog_API.csproj",
+              "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Blog_API.csproj",
+              "RelativeToolTip": "Blog_API.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-13T05:38:02.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAAACsAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T07:24:18.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "CommentReactionController.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Controllers\\CommentReactionController.cs",
               "RelativeDocumentMoniker": "Controllers\\CommentReactionController.cs",
               "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Controllers\\CommentReactionController.cs",
               "RelativeToolTip": "Controllers\\CommentReactionController.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAUwD4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAiwD4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-28T12:07:03.918Z"
+              "WhenOpened": "2026-03-28T12:07:03.918Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CommentController.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Controllers\\CommentController.cs",
               "RelativeDocumentMoniker": "Controllers\\CommentController.cs",
               "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Controllers\\CommentController.cs",
               "RelativeToolTip": "Controllers\\CommentController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwCMAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAowC8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-28T12:04:29.278Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "CommentReaction.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Models\\CommentReaction.cs",
               "RelativeDocumentMoniker": "Models\\CommentReaction.cs",
@@ -91,47 +223,51 @@
               "RelativeToolTip": "Models\\CommentReaction.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-28T11:58:31.509Z"
+              "WhenOpened": "2026-03-28T11:58:31.509Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Comment.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Models\\Comment.cs",
               "RelativeDocumentMoniker": "Models\\Comment.cs",
               "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Models\\Comment.cs",
               "RelativeToolTip": "Models\\Comment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAgwB0AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-28T11:56:35.2Z"
+              "WhenOpened": "2026-03-28T11:56:35.2Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
               "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Data\\AppDbContext.cs",
               "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAUwD4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-28T05:34:49.525Z"
+              "WhenOpened": "2026-03-28T05:34:49.525Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "BlogSaveController.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Controllers\\BlogSaveController.cs",
               "RelativeDocumentMoniker": "Controllers\\BlogSaveController.cs",
               "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Controllers\\BlogSaveController.cs",
               "RelativeToolTip": "Controllers\\BlogSaveController.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAE0AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADgAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-27T11:29:38.632Z"
+              "WhenOpened": "2026-03-27T11:29:38.632Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 17,
               "Title": "SavedBlog.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Models\\SavedBlog.cs",
               "RelativeDocumentMoniker": "Models\\SavedBlog.cs",
@@ -143,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "BlogLike.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Models\\BlogLike.cs",
               "RelativeDocumentMoniker": "Models\\BlogLike.cs",
@@ -155,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 18,
               "Title": "likeController.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Controllers\\likeController.cs",
               "RelativeDocumentMoniker": "Controllers\\likeController.cs",
@@ -167,27 +303,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Blog.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Models\\Blog.cs",
               "RelativeDocumentMoniker": "Models\\Blog.cs",
               "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Models\\Blog.cs",
               "RelativeToolTip": "Models\\Blog.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAIwBoAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-03T08:01:07.342Z"
+              "WhenOpened": "2026-03-03T08:01:07.342Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "BlogController.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Controllers\\BlogController.cs",
               "RelativeDocumentMoniker": "Controllers\\BlogController.cs",
               "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Controllers\\BlogController.cs",
               "RelativeToolTip": "Controllers\\BlogController.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAYwC8AAABXAAAAAAAAAA==",
+              "ViewState": "AgIAAHEAAAAAAAAAAADwv5cAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T11:28:41.597Z"
+              "WhenOpened": "2026-02-26T11:28:41.597Z",
+              "EditorCaption": ""
             }
           ]
         }

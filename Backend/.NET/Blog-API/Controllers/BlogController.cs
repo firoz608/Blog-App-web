@@ -107,7 +107,7 @@ namespace Blog_API.Controllers
 
         //Update
         [HttpPut("update/{id}")]
-        public async Task<IActionResult> UpdateBlog(int id, [FromBody] Blog updatedBlog)
+        public async Task<IActionResult> UpdateBlog(int id, [FromForm] Blog updatedBlog, IFormFile file)
         {
             if (id != updatedBlog.Id)
             {
@@ -121,13 +121,30 @@ namespace Blog_API.Controllers
                 return NotFound(new { message = "Blog not found" });
             }
 
-            // Update values
+            // Update text fields
             blog.Title = updatedBlog.Title;
             blog.Content = updatedBlog.Content;
             blog.Author = updatedBlog.Author;
             blog.CreatedDate = updatedBlog.CreatedDate;
-            blog.Image = updatedBlog.Image;
 
+            // ✅ Handle file upload properly
+            if (file != null && file.Length > 0)
+            {
+                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
+
+                if (!Directory.Exists(folderPath))
+                    Directory.CreateDirectory(folderPath);
+
+                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                var filePath = Path.Combine(folderPath, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+
+                blog.Image = "/uploads/" + fileName;
+            }
 
             await _context.SaveChangesAsync();
 

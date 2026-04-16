@@ -10,8 +10,13 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // Connecting sql server
-builder.Services.AddDbContext<AppDbContext>(opt =>
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+//builder.Services.AddDbContext<AppDbContext>(opt =>
+//    opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+
+
+// Connecting postgre sql 
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
 
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
