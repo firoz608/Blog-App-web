@@ -74,4 +74,5 @@ app.Run();
 
 app.UseAuthentication();
 app.UseDeveloperExceptionPage();
+app.MapGet("/", () => "API is running...");
 
