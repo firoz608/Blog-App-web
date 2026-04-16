@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\documents\\github\\new folder\\blog-app-web\\backend\\.net\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\documents\\github\\new folder\\blog-app-web\\backend\\.net\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\documents\\github\\new folder\\blog-app-web\\backend\\.net\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,13 +26,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\Documents\\GitHub\\New folder\\Blog-App-web\\Backend\\.NET\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\Documents\\GitHub\\New folder\\Blog-App-web\\Backend\\.NET\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAB9AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-04-16T13:04:45.705Z",
               "EditorCaption": ""
@@ -45,14 +45,14 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\Documents\\GitHub\\New folder\\Blog-App-web\\Backend\\.NET\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAEMAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-16T07:40:42.655Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Dockerfile",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\Documents\\GitHub\\New folder\\Blog-App-web\\Backend\\.NET\\Dockerfile",
               "RelativeDocumentMoniker": "Dockerfile",
@@ -60,8 +60,7 @@
               "RelativeToolTip": "Dockerfile",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-04-16T07:08:43.562Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T07:08:43.562Z"
             }
           ]
         }
