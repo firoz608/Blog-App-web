@@ -63,5 +63,8 @@ app.MapControllers();
 
 // Test route
 app.MapGet("/", () => "API is running...");
-
+if (app.Environment.IsDevelopment() || true)
+{
+    app.UseDeveloperExceptionPage();
+}
 app.Run();
