@@ -1,24 +1,16 @@
-﻿
-
-using Blog_API.Data;
+﻿using Blog_API.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
-// Connecting sql server
-//builder.Services.AddDbContext<AppDbContext>(opt =>
-//    opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
-
-
-// Connecting postgre sql 
+// PostgreSQL (Supabase)
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
 
-
+// JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 .AddJwtBearer(options =>
 {
@@ -32,47 +24,45 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     };
 });
-//cors
+
+// CORS (allow all for now - safe for testing)
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAngular",
+    options.AddPolicy("AllowAll",
         policy =>
         {
-            policy.WithOrigins("http://localhost:4200")
+            policy.AllowAnyOrigin()
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
 });
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// Middleware order matters!
 app.UseStaticFiles();
-app.UseCors("AllowAngular");
-// Configure the HTTP request pipeline.
+
+app.UseCors("AllowAll");
+
+app.UseAuthentication();   // ✅ FIRST
+app.UseAuthorization();    // ✅ SECOND
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-//app.UseHttpsRedirection(); //comment this after deploying on render
-
-app.UseAuthorization();
+// IMPORTANT: Disable HTTPS redirect on Render
+// app.UseHttpsRedirection();
 
 app.MapControllers();
 
-app.Run();
-
-
-
-app.UseAuthentication();
-app.UseDeveloperExceptionPage();
+// Test route
 app.MapGet("/", () => "API is running...");
 
+app.Run();
