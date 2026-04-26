@@ -140,4 +140,3 @@ C:\Users\MD FIROZ AHMAD\source\repos\Blog_API\obj\Debug\net8.0\ref\Blog_API.dll
 C:\Users\MD FIROZ AHMAD\source\repos\Blog_API\bin\Debug\net8.0\Blog_API.staticwebassets.runtime.json
 C:\Users\MD FIROZ AHMAD\source\repos\Blog_API\bin\Debug\net8.0\Npgsql.dll
 C:\Users\MD FIROZ AHMAD\source\repos\Blog_API\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
-C:\Users\MD FIROZ AHMAD\source\repos\Blog_API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

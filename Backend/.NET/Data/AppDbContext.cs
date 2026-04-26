@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blog_API.Data
 {
-
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
@@ -15,8 +14,6 @@ namespace Blog_API.Data
         public DbSet<Comment> Comments { get; set; }
         public DbSet<CommentReaction> CommentReactions { get; set; }
         public DbSet<BlogLike> BlogLikes { get; set; }
-
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -61,7 +58,8 @@ namespace Blog_API.Data
                 .HasOne(cr => cr.Comment)
                 .WithMany(c => c.CommentReactions)
                 .HasForeignKey(cr => cr.CommentId)
-                .OnDelete(DeleteBehavior.Cascade);
+                 .OnDelete(DeleteBehavior.NoAction);
+
 
         }
     }

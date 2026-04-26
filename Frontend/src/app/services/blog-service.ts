@@ -11,6 +11,11 @@ export class BlogService {
   private saveApi = 'https://localhost:7059/api/BlogSave';
 
 
+  // private apiUrl = "https://blog-app-web-f3av.onrender.com";
+// private saveApi = "https://blog-app-web-f3av.onrender.com/api/BlogSave";
+
+
+
   //create blog post
   createBlogPost(blogData: any) {
     return this.http.post(`${this.apiUrl}/api/Blogs`, blogData);
@@ -62,38 +67,21 @@ export class BlogService {
   getSaveCount(blogId: number): Observable<any> {
     return this.http.get(`${this.saveApi}/save-count/${blogId}`);
   }
-  //like blog post
-  // likeBlogPost(id:number){
-  //   return this.http.post(`${this.apiUrl}/api/Blogs/like/${id}`,{});
-  // }
-  //dislike blog post
-  // dislikeBlogPost(id:number){
-  //   return this.http.post(`${this.apiUrl}/api/Blogs/dislike/${id}`,{});
-  // }
-
-
-  // comment on blog post
-  // commentOnBlogPost(blog:any){
-  //   return this.http.post(`${this.apiUrl}/api/Comments`,blog);
-  // }
-
-  // loadComment(id:number){
-  //   return this.http.get(this.apiUrl+'/api/Comments/'+id);
-  // }
-
 
   // comment
 addComment(blogId: number, userId: number, content: string, parentCommentId?: number) {
-  let params = new HttpParams()
-    .set('blogId', blogId.toString())
-    .set('userId', userId.toString())
-    .set('content', content);
+  const body: any = {
+    blogId: blogId,
+    userId: userId,
+    content: content
+  };
 
   if (parentCommentId !== undefined && parentCommentId !== null) {
-    params = params.set('parentCommentId', parentCommentId.toString());
+    body.parentCommentId = parentCommentId;
   }
+  // console.log({ blogId, userId, content, parentCommentId });
 
-  return this.http.post(`${this.apiUrl}/api/Comment/add`, {}, { params });
+  return this.http.post(`${this.apiUrl}/api/Comment/add`, body);
 }
 
 getCommentsByBlog(blogId: number, currentUserId: number) {

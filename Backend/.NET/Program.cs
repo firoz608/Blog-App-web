@@ -4,20 +4,17 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
-// PostgreSQL (Supabase)
-//builder.Services.AddDbContext<AppDbContext>(options =>
-//    options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
-
-
+// ✅ SQL Server Connection
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(
-        builder.Configuration.GetConnectionString("Default"),
-        o => o.CommandTimeout(60)
-    ));
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("Default")
+    )
+);
 
-// JWT Authentication
+// ✅ JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 .AddJwtBearer(options =>
 {
@@ -28,50 +25,48 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? "THIS_IS_DEFAULT_KEY")
+        )
     };
 });
 
-// CORS (allow all for now - safe for testing)
+// ✅ CORS (Angular)
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll",
-        policy =>
-        {
-            policy.AllowAnyOrigin()
-                  .AllowAnyHeader()
-                  .AllowAnyMethod();
-        });
+    options.AddPolicy("AllowAngular", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
 });
 
+// ✅ Controllers & Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.WebHost.UseUrls("http://0.0.0.0:10000");
+
 var app = builder.Build();
 
+// ✅ Development tools
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
-app.UseSwagger();
-app.UseSwaggerUI();
-// Middleware order matters!
+// ✅ Middleware pipeline
+app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
-app.UseCors("AllowAll");
+app.UseCors("AllowAngular");
 
-app.UseAuthentication();   // ✅ FIRST
-app.UseAuthorization();    // ✅ SECOND
-
-
-
-// IMPORTANT: Disable HTTPS redirect on Render
-// app.UseHttpsRedirection();
+// ⚠️ ORDER MATTERS
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 
-// Test route
-app.MapGet("/", () => "API is running...");
-if (app.Environment.IsDevelopment() || true)
-{
-    app.UseDeveloperExceptionPage();
-}
 app.Run();

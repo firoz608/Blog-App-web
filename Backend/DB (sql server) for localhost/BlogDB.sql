@@ -1,5 +1,0 @@
-select * from Users
-
-
-ALTER TABLE Users
-ALTER COLUMN Email NVARCHAR(150) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL;

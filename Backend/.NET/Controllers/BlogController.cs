@@ -20,26 +20,9 @@ namespace Blog_API.Controllers
 
         // GET ALL BLOGS
         [HttpGet]
-        public async Task<IActionResult> GetBlogs()
+        public async Task<ActionResult<IEnumerable<Blog>>> GetBlogs()
         {
-            var blogs = await _context.Blogs
-                .AsNoTracking() // 🔥 improves performance
-                .OrderByDescending(b => b.Id)
-                .Take(10) // 🔥 LIMIT DATA
-                .Select(b => new
-                {
-                    b.Id,
-                    b.Title,
-                    b.Content,
-                    b.Author,
-                    b.UserId,
-                    b.Image,
-                    b.CreatedDate,
-                    b.Likes
-                })
-                .ToListAsync();
-
-            return Ok(blogs);
+            return await _context.Blogs.OrderByDescending(x => x.Id).ToListAsync();
         }
 
         //Getbyid
@@ -111,24 +94,13 @@ namespace Blog_API.Controllers
             return Ok(blog);
         }
 
-     
         [HttpGet("latest")]
         public async Task<IActionResult> GetLatestBlog()
         {
             var blog = await _context.Blogs
-                .AsNoTracking()
-                .OrderByDescending(b => b.Id)
-                .Select(b => new
-                {
-                    b.Id,
-                    b.Title,
-                    b.Content,
-                    b.Author,
-                    b.UserId,
-                    b.Image,
-                    b.CreatedDate
-                })
-                .FirstOrDefaultAsync();
+     .OrderByDescending(b => b.CreatedDate)
+     .ThenByDescending(b => b.Id)
+     .FirstOrDefaultAsync();
 
             return Ok(blog);
         }

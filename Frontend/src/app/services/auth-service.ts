@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
   private apiUrl = "https://localhost:7059";
+  // private apiUrl = "https://blog-app-web-f3av.onrender.com";
+// private saveApi = "https://blog-app-web-f3av.onrender.com/api/BlogSave";
   constructor(private http: HttpClient) { }
   //register user
   registerUser(userData: any): Observable<any> {

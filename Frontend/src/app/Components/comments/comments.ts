@@ -15,7 +15,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './comments.css',
 })
 export class Comments {
-  apiUrl = "https://localhost:7059";
+  // apiUrl = "https://blog-app-web-f3av.onrender.com";
+  apiUrl='https://localhost:7059';
   blogPost: any[] = [];
   blogId: number = 0;
   comments: any[] = [];
@@ -91,6 +92,7 @@ export class Comments {
     this.commentService.addComment(this.blogId, this.currentUserId, this.newComment.trim()).subscribe({
       next: () => {
         this.newComment = '';
+        alert('Comment added successfully!');
         this.loadComments();
       },
       error: (err) => {

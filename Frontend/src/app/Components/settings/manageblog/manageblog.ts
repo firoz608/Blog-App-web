@@ -14,6 +14,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './manageblog.css',
 })
 export class Manageblog {
+  // apiUrl='https://blog-app-web-f3av.onrender.com';
   apiUrl='https://localhost:7059';
   blogPosts: any[] = [];
   blogForm!: FormGroup;
@@ -61,7 +62,7 @@ export class Manageblog {
     
     this._blogservice.getSingleBlog(blogId, this.getuserid()).subscribe(
       (blog) => {
-        console.log(blog);
+        // console.log(blog);
         
         this.blogForm.patchValue({
           title: blog.title,
@@ -94,19 +95,19 @@ export class Manageblog {
     // console.log(this.blogForm.value);
 
   const formData = new FormData();
-
+    formData.append('id', this.blogid);
   formData.append('userId', this.getuserid()as any);
   formData.append('title', this.blogForm.value.title);
   formData.append('content', this.blogForm.value.content);
   formData.append('author', this.getAuthorName());
-  formData.append('likes', '0');
-  formData.append('comments', '0');
+  formData.append('blogLikes', '0');
+formData.append('blogComments', '0'); // agar hai
+
   formData.append('saved', 'false');
 
   if (this.selectedFile) {
     formData.append('file', this.selectedFile); // 👈 send real file
   }
-   
     
     this._blogservice.updateBlogPost(this.blogid, formData).subscribe(
       (response) => {

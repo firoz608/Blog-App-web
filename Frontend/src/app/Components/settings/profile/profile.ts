@@ -56,6 +56,7 @@ export class Profile {
 
           
           console.log("Profile updated", res);
+          alert("Profile picture updated successfully");
           
           localStorage.setItem("CommentPic",res.profilePicture)as any;
 

@@ -56,7 +56,7 @@ body {
 }
 
 .mini-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,191,165,0.14); }
-.mini-card img { width: 290px; height: 260px; object-fit: cover; display: block; object-position: center; }
+.mini-card img { width: 330px;; height: 260px; object-fit: cover; display: block; object-position: center; }
 .mini-card-body { padding: 1rem; }
 .mini-cat {
   font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
