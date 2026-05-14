@@ -3,6 +3,8 @@ import { Router, RouterLink } from '@angular/router';
 import { BlogService } from '../../../services/blog-service';
 import { CommonModule, NgForOf } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { SupabaseStorageService } from '../../../services/supabase-storage.service';
+import { SupabaseService } from '../../../services/supabase.service';
 
 
 @Component({
@@ -24,7 +26,7 @@ export class Manageblog {
   blogid: any;
   showPopup = false;
 
-  constructor(private _route: Router, private _blogservice: BlogService, private fb: FormBuilder) {
+  constructor(private _route: Router, private _blogservice: BlogService, private fb: FormBuilder,private storageService: SupabaseStorageService, private supabaseService: SupabaseService) {
     this.blogForm = this.fb.group({
       title: [''],
       content: [''],
@@ -67,7 +69,10 @@ export class Manageblog {
         this.blogForm.patchValue({
           title: blog.title,
           content: blog.content,
+          image: blog.image,
+          
         });
+        this.imagePreview = blog.image || 'assets/default-upld-image2.png';
       }
     );
   }
@@ -91,40 +96,89 @@ export class Manageblog {
     return storedUser ? storedUser.id : 0;
   }
 
-  submitBlog() {
-    // console.log(this.blogForm.value);
+  async submitBlog() {
 
-  const formData = new FormData();
-    formData.append('id', this.blogid);
-  formData.append('userId', this.getuserid()as any);
-  formData.append('title', this.blogForm.value.title);
-  formData.append('content', this.blogForm.value.content);
-  formData.append('author', this.getAuthorName());
-  formData.append('blogLikes', '0');
-formData.append('blogComments', '0'); // agar hai
+  try {
 
-  formData.append('saved', 'false');
+    let imageUrl = this.imagePreview;
 
-  if (this.selectedFile) {
-    formData.append('file', this.selectedFile); // 👈 send real file
+    // Upload new image only if user selects a new one
+    if (this.selectedFile) {
+
+      imageUrl = await this.storageService
+        .uploadBlogImage(this.selectedFile);
+
+    }
+
+    const updatedBlogData = {
+
+     
+
+      userId: this.getuserid(),
+
+      title: this.blogForm.value.title,
+
+      content: this.blogForm.value.content,
+
+      author: this.getAuthorName(),
+
+      image: imageUrl
+
+    };
+
+    this._blogservice.updateBlogPost(this.blogid, updatedBlogData)
+      .subscribe({
+
+        next: (response: any) => {
+
+          // Update blog in UI instantly
+          const index = this.blogPosts.findIndex(
+            (x: any) => x.id === this.blogid
+          );
+
+          if (index !== -1) {
+
+            this.blogPosts[index] = {
+              ...this.blogPosts[index],
+              ...response
+            };
+
+          }
+
+          this.blogForm.reset();
+
+          this.showPopup = false;
+
+          this.imagePreview = "assets/default-upld-image2.png";
+
+         
+
+          alert("Blog updated successfully");
+
+        },
+
+        error: (err) => {
+
+          console.log(err);
+
+        }
+
+      });
+
   }
-    
-    this._blogservice.updateBlogPost(this.blogid, formData).subscribe(
-      (response) => {
-        console.log('Blog post updated successfully:', response);
-        this.blogForm.reset();
-        this.onload(); // Refresh the blog posts list after update
-        this.imagePreview = null;
-        this.showPopup = false;
-        // Optionally, refresh the blog posts list or update the specific post in the UI
-      },
-      (error) => {
-        console.error('Error updating blog post:', error);
-      }
-    );
+
+  catch (error) {
+
+    console.log(error);
+
+    alert("Image upload failed");
 
   }
+
+}
+ 
   onImageSelect(event: any) {
+
 
     const file = event.target.files[0];
 
@@ -149,7 +203,8 @@ formData.append('blogComments', '0'); // agar hai
           this._blogservice.deleteBlogPost(blogId).subscribe(
       () => {
         this.blogPosts = this.blogPosts.filter(post => post.id !== blogId);
-        console.log('Blog deleted successfully');
+        // console.log('Blog deleted successfully');
+        alert("Blog deleted successfully");
       },
       (error) => {
         console.error('Error deleting blog:', error);

@@ -3,6 +3,7 @@
 namespace Blog_API.Controllers
 {
     using Blog_API.Data;
+    using Blog_API.DTO;
     using Blog_API.Models;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
@@ -64,31 +65,26 @@ namespace Blog_API.Controllers
 
         // POST BLOG
         [HttpPost]
-        public async Task<ActionResult<Blog>> CreateBlog([FromForm] Blog blog, IFormFile? file)
+        public async Task<ActionResult<Blog>> CreateBlog([FromBody] CreateBlogDto dto)
         {
             var userExists = await _context.Users
-                .AnyAsync(u => u.Id == blog.UserId);
+                .AnyAsync(u => u.Id == dto.UserId);
 
             if (!userExists)
                 return BadRequest("Invalid UserId");
 
-            // 🔥 Save Image to Folder
-            if (file != null)
+            var blog = new Blog
             {
-                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-                var filePath = Path.Combine("wwwroot/uploads", fileName);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await file.CopyToAsync(stream);
-                }
-
-                blog.Image = "/uploads/" + fileName; // store path only
-            }
-
-            blog.CreatedDate = DateOnly.FromDateTime(DateTime.Now);
+                Title = dto.Title,
+                Content = dto.Content,
+                Image = dto.Image,
+                Author = dto.Author,
+                UserId = dto.UserId,
+                CreatedDate = DateOnly.FromDateTime(DateTime.Now)
+            };
 
             _context.Blogs.Add(blog);
+
             await _context.SaveChangesAsync();
 
             return Ok(blog);
@@ -106,54 +102,30 @@ namespace Blog_API.Controllers
         }
 
         //Update
-        [HttpPut("update/{id}")]
-        public async Task<IActionResult> UpdateBlog(int id, [FromForm] Blog updatedBlog, IFormFile file)
+
+[HttpPut("update/{id}")]
+    public async Task<IActionResult> UpdateBlog(int id, [FromBody] CreateBlogDto updatedBlog)
+    {
+        var blog = await _context.Blogs.FindAsync(id);
+
+        if (blog == null)
         {
-            if (id != updatedBlog.Id)
-            {
-                return BadRequest(new { message = "Blog ID mismatch" });
-            }
-
-            var blog = await _context.Blogs.FindAsync(id);
-
-            if (blog == null)
-            {
-                return NotFound(new { message = "Blog not found" });
-            }
-
-            // Update text fields
-            blog.Title = updatedBlog.Title;
-            blog.Content = updatedBlog.Content;
-            blog.Author = updatedBlog.Author;
-            blog.CreatedDate = updatedBlog.CreatedDate;
-
-            // ✅ Handle file upload properly
-            if (file != null && file.Length > 0)
-            {
-                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
-
-                if (!Directory.Exists(folderPath))
-                    Directory.CreateDirectory(folderPath);
-
-                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-                var filePath = Path.Combine(folderPath, fileName);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await file.CopyToAsync(stream);
-                }
-
-                blog.Image = "/uploads/" + fileName;
-            }
-
-            await _context.SaveChangesAsync();
-
-            return Ok(new { message = "Blog updated successfully" });
+            return NotFound(new { message = "Blog not found" });
         }
 
+        // Only update these fields
+        blog.Title = updatedBlog.Title;
+        blog.Content = updatedBlog.Content;
+        blog.Image = updatedBlog.Image;
 
-        //Delete
-        [HttpDelete("delete/{id}")]
+        await _context.SaveChangesAsync();
+
+        return Ok(blog);
+    }
+
+
+    //Delete
+    [HttpDelete("delete/{id}")]
         public async Task<IActionResult> DeleteBlog(int id)
         {
             var blog = await _context.Blogs.FindAsync(id);

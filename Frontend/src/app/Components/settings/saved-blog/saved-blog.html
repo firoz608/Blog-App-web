@@ -29,7 +29,8 @@
       <div class="posts-grid">
         <div class="mini-card" *ngFor="let blog of blogposts">
 
-          <img [src]="blog?.image ? apiUrl + blog.image : 'assets/default-upld-image2.png'" alt="">
+          <img [src]="blog?.image || 'assets/default-upld-image2.png'" alt="">
+          
           <div class="mini-card-body">
             <div class="mini-cat">{{blog.title}}</div>
             <div class="mini-title">{{blog.content}}</div>

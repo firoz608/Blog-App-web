@@ -67,49 +67,6 @@
         }
       }
     },
-    "/api/auth/uploads/profile/{id}": {
-      "post": {
-        "tags": [
-          "Auth"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "file": {
-                    "type": "string",
-                    "format": "binary"
-                  }
-                }
-              },
-              "encoding": {
-                "file": {
-                  "style": "form"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/auth/profile-picture/{id}": {
       "get": {
         "tags": [
@@ -126,6 +83,48 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/auth/update/profile-image/{id}": {
+      "put": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -218,112 +217,19 @@
         ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "Id": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "Title": {
-                    "type": "string"
-                  },
-                  "Content": {
-                    "type": "string"
-                  },
-                  "Image": {
-                    "type": "string"
-                  },
-                  "Author": {
-                    "type": "string"
-                  },
-                  "CreatedDate": {
-                    "type": "string",
-                    "format": "date"
-                  },
-                  "Likes": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "Comments": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "Saved": {
-                    "type": "boolean"
-                  },
-                  "UserId": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "BlogLikes": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/BlogLike"
-                    }
-                  },
-                  "BlogSaves": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/SavedBlog"
-                    }
-                  },
-                  "CommentsList": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Comment"
-                    }
-                  },
-                  "file": {
-                    "type": "string",
-                    "format": "binary"
-                  }
-                }
-              },
-              "encoding": {
-                "Id": {
-                  "style": "form"
-                },
-                "Title": {
-                  "style": "form"
-                },
-                "Content": {
-                  "style": "form"
-                },
-                "Image": {
-                  "style": "form"
-                },
-                "Author": {
-                  "style": "form"
-                },
-                "CreatedDate": {
-                  "style": "form"
-                },
-                "Likes": {
-                  "style": "form"
-                },
-                "Comments": {
-                  "style": "form"
-                },
-                "Saved": {
-                  "style": "form"
-                },
-                "UserId": {
-                  "style": "form"
-                },
-                "BlogLikes": {
-                  "style": "form"
-                },
-                "BlogSaves": {
-                  "style": "form"
-                },
-                "CommentsList": {
-                  "style": "form"
-                },
-                "file": {
-                  "style": "form"
-                }
+                "$ref": "#/components/schemas/CreateBlogDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBlogDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBlogDto"
               }
             }
           }
@@ -480,112 +386,19 @@
         ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "Id": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "Title": {
-                    "type": "string"
-                  },
-                  "Content": {
-                    "type": "string"
-                  },
-                  "Image": {
-                    "type": "string"
-                  },
-                  "Author": {
-                    "type": "string"
-                  },
-                  "CreatedDate": {
-                    "type": "string",
-                    "format": "date"
-                  },
-                  "Likes": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "Comments": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "Saved": {
-                    "type": "boolean"
-                  },
-                  "UserId": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "BlogLikes": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/BlogLike"
-                    }
-                  },
-                  "BlogSaves": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/SavedBlog"
-                    }
-                  },
-                  "CommentsList": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/Comment"
-                    }
-                  },
-                  "file": {
-                    "type": "string",
-                    "format": "binary"
-                  }
-                }
-              },
-              "encoding": {
-                "Id": {
-                  "style": "form"
-                },
-                "Title": {
-                  "style": "form"
-                },
-                "Content": {
-                  "style": "form"
-                },
-                "Image": {
-                  "style": "form"
-                },
-                "Author": {
-                  "style": "form"
-                },
-                "CreatedDate": {
-                  "style": "form"
-                },
-                "Likes": {
-                  "style": "form"
-                },
-                "Comments": {
-                  "style": "form"
-                },
-                "Saved": {
-                  "style": "form"
-                },
-                "UserId": {
-                  "style": "form"
-                },
-                "BlogLikes": {
-                  "style": "form"
-                },
-                "BlogSaves": {
-                  "style": "form"
-                },
-                "CommentsList": {
-                  "style": "form"
-                },
-                "file": {
-                  "style": "form"
-                }
+                "$ref": "#/components/schemas/CreateBlogDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBlogDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBlogDto"
               }
             }
           }
@@ -1215,6 +1028,32 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateBlogDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "author": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

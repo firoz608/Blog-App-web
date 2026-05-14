@@ -14,6 +14,8 @@ import { faSave } from '@fortawesome/free-solid-svg-icons'
 import { AuthService } from '../../services/auth-service';
 import { concatMap, switchMap } from 'rxjs';
 import { Shared } from '../../services/shared';
+import { SupabaseStorageService } from '../../services/supabase-storage.service';
+import { SupabaseService } from '../../services/supabase.service';
 
 
 
@@ -30,7 +32,7 @@ import { Shared } from '../../services/shared';
 })
 export class Dashboard {
 
-  constructor(private fb: FormBuilder, private _blogservice: BlogService, private _router: Router, private authService: AuthService, private _shared: Shared) { }
+  constructor(private fb: FormBuilder, private _blogservice: BlogService, private _router: Router, private authService: AuthService, private _shared: Shared, private storageService: SupabaseStorageService, private supabaseService: SupabaseService) { }
   // apiUrl = 'https://blog-app-web-f3av.onrender.com';
   apiUrl = "https://localhost:7059";
   write = faPen;
@@ -54,7 +56,7 @@ export class Dashboard {
   CommentblogPosts: any[] = [];
   loadcmnt: any[] = [];
   isLoggedIn: boolean = false;
-  latestblogprofileImage: any = 'assets/default-avatar.jpg'; // default image
+  // latestblogprofileImage: any = 'assets/default-avatar.jpg'; // default image
   currentUserId: number = 0;
 
 
@@ -85,16 +87,9 @@ export class Dashboard {
       const parsedUser = user;
 
       this.currentUserId = parsedUser.id;
-      this.authService.getprofilepic(user.id)
-        .subscribe((imageBlob: Blob) => {
-
-          const imageUrl = URL.createObjectURL(imageBlob);
-          this.profileImage = imageUrl;
-          localStorage.setItem("profilePicture", this.profileImage);
-        });
+      this.profileImage = user.picture || 'assets/default-avatar.jpg';
+      localStorage.setItem("profilePicture", this.profileImage);
     }
-
-
 
     if (!this.imagePreview) {
       this.imagePreview = "assets/default-upld-image2.png"; // set default image 
@@ -107,23 +102,22 @@ export class Dashboard {
     this.isLoggedIn = this.authService.isLoggedIn();
   }
   loadlatestblog() {
-    this._blogservice.getLatestBlog().pipe(
-      switchMap(res => {
-        this.latestBlog = res;
 
+    this._blogservice.getLatestBlog().subscribe((res: any) => {
 
-        return this.authService.getprofilepic(res.userId);
-      })
-    ).subscribe((imageBlob: Blob) => {
+      this.latestBlog = res;
+      console.log(this.latestBlog);
+      this.authService
+        .getprofilepic(this.latestBlog.userId)
+        .subscribe((profileRes: any) => {
 
-      const imageUrl = URL.createObjectURL(imageBlob);
-      this.latestblogprofileImage = imageUrl;
+          this.latestBlog.profileImage =
+            profileRes.imageUrl;
 
-      console.log(this.latestblogprofileImage);
+        });
 
-      // optional
-      localStorage.setItem("latestblogprofileImage", imageUrl);
     });
+
   }
 
   loadBlogs() {
@@ -172,41 +166,55 @@ export class Dashboard {
 
   }
 
-  submitBlog() {
+  async submitBlog() {
 
+    try {
 
-    const formData = new FormData();
+      let imageUrl = '';
 
-    formData.append('userId', this.getuserid() as any);
-    formData.append('title', this.blogForm.value.title);
-    formData.append('content', this.blogForm.value.content);
-    formData.append('author', this.getAuthorName());
-    formData.append('Bloglikes', '0');
-    formData.append('comments', '0');
-    formData.append('Saved', 'false');
+      // Upload image to Supabase
+      if (this.selectedFile) {
+        imageUrl = await this.storageService
+          .uploadBlogImage(this.selectedFile);
+      }
 
-    if (this.selectedFile) {
-      formData.append('file', this.selectedFile);
-    }
+      const blogData = {
+        userId: this.getuserid(),
+        title: this.blogForm.value.title,
+        content: this.blogForm.value.content,
+        author: this.getAuthorName(),
+        image: imageUrl
+      };
 
-    this._blogservice.createBlogPost(formData).subscribe(
-      (response: any) => {
-        console.log('Blog post created:', response);
+      this._blogservice.createBlogPost(blogData)
+        .subscribe({
+          next: (response: any) => {
 
-        this.blogPosts.unshift({
-          ...response,
-          isLiked: false
+            this.blogPosts.unshift({
+              ...response,
+              isLiked: false
+            });
+
+            this.blogForm.reset();
+
+            this.showPopup = false;
+
+            this.imagePreview = "assets/default-upld-image2.png";
+
+            alert("Blog created successfully");
+
+          },
+          error: (err) => {
+            console.log(err);
+          }
         });
 
-        this.blogForm.reset();
-        this.showPopup = false;
-        this.imagePreview = null;
-      },
-      (error) => {
-        console.error('Error:', error);
-      }
-    );
+    } catch (error) {
 
+      console.log(error);
+
+      alert("Image upload failed");
+    }
   }
 
 
@@ -254,7 +262,7 @@ export class Dashboard {
       this._router.navigate(["/login"]);
       return;
     }
-
+    console.log(blog);
     this._blogservice.toggleLike(blog.id, this.currentUserId).subscribe({
       next: (res: any) => {
 
@@ -313,7 +321,7 @@ export class Dashboard {
 
 
 
-  
+
 
 
   gotosearchblog() {

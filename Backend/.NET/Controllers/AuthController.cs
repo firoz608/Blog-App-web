@@ -62,59 +62,43 @@ namespace Blog_API.Controllers
             });
         }
 
-        [HttpPost("uploads/profile/{id}")]
-        public async Task<IActionResult> UploadProfile(int id, IFormFile file)
+        [HttpGet("profile-picture/{id}")]
+        public async Task<IActionResult> GetProfilePicture(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(new
+            {
+                imageUrl = user.ProfilePicture
+            });
+        }
+
+
+        [HttpPut("update/profile-image/{id}")]
+        public async Task<IActionResult> UpdateProfileImage(int id, [FromBody] string imageUrl)
         {
             var user = await _context.Users.FindAsync(id);
 
             if (user == null)
                 return NotFound();
 
-            if (file != null && file.Length > 0)
+            user.ProfilePicture = imageUrl;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(new
             {
-                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads/profile");
-
-                if (!Directory.Exists(folderPath))
-                    Directory.CreateDirectory(folderPath);
-
-                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-
-                var filePath = Path.Combine(folderPath, fileName);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await file.CopyToAsync(stream);
-                }
-
-                user.ProfilePicture = "/uploads/profile/" + fileName;
-
-                await _context.SaveChangesAsync();
-            }
-
-            return Ok(user);
+                message = "Profile updated successfully",
+                profilePicture = user.ProfilePicture
+            });
         }
 
-        [HttpGet("profile-picture/{id}")]
-        public async Task<IActionResult> GetProfilePicture(int id)
-        {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
 
-            if (user == null || string.IsNullOrEmpty(user.ProfilePicture))
-            {
-                return NotFound("Profile picture not found");
-            }
-
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", user.ProfilePicture.TrimStart('/'));
-
-            if (!System.IO.File.Exists(filePath))
-            {
-                return NotFound("Image file not found");
-            }
-
-            var imageBytes = await System.IO.File.ReadAllBytesAsync(filePath);
-
-            return File(imageBytes, "image/jpeg");
-        }
 
         [HttpPut("update/name/{id}")]
         public async Task<IActionResult> UpdateName(int id, [FromBody] user updatedUser)

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../../services/auth-service';
 import { Router, RouterLink } from '@angular/router';
+import { SupabaseStorageService } from '../../../services/supabase-storage.service';
+import { SupabaseService } from '../../../services/supabase.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +13,7 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './profile.css',
 })
 export class Profile {
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,private storageService: SupabaseStorageService, private supabaseService: SupabaseService) { }
   profileImage: string = 'assets/default-avatar.jpg'; // default image
 
   selectedFile!: File;
@@ -22,51 +24,64 @@ export class Profile {
   ngOnInit() {
 
   const user = JSON.parse(localStorage.getItem("user") || '{}');
-  if(user.id){
 
-    this.authService.getprofilepic(user.id)
-    .subscribe((imageBlob: Blob)=>{
-
-      const imageUrl = URL.createObjectURL(imageBlob);
-
-      this.profileImage = imageUrl;
-      localStorage.setItem("profilePicture", this.profileImage);
-
-    });
+if (user.picture) {
+  this.profileImage = user.picture;
+}
 
   }
 
-  }
+  async uploadImage() {
 
-  uploadImage() {
+  try {
 
-    const formData = new FormData();
+    if (!this.selectedFile) {
+      alert("Please select image");
+      return;
+    }
+
+    const imageUrl = await this.supabaseService
+      .uploadProfileImage(this.selectedFile);
 
     const storedUser = JSON.parse(localStorage.getItem("user")!);
+
     const userId = Number(storedUser.id);
 
-    formData.append('file', this.selectedFile);
-    
-    
-
-
-    this.authService.updateProfilepicture(userId, formData)
+    this.authService
+      .updateProfileImage(userId, imageUrl)
       .subscribe({
+
         next: (res: any) => {
 
-          
-          console.log("Profile updated", res);
-          alert("Profile picture updated successfully");
-          
-          localStorage.setItem("CommentPic",res.profilePicture)as any;
+          this.profileImage = imageUrl;
+
+          storedUser.picture = imageUrl;
+
+          localStorage.setItem(
+            "user",
+            JSON.stringify(storedUser)
+          );
+
+          alert("Profile updated successfully");
 
         },
+
         error: (err) => {
           console.log(err);
         }
+
       });
 
   }
+  catch (error) {
+
+    console.log(error);
+
+    alert("Upload failed");
+
+  }
+
+}
 
   updateName() {
 

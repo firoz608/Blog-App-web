@@ -22,7 +22,7 @@ constructor(private blogService:BlogService,private _router:Router){
 ngOnInit(){
    const user = JSON.parse(localStorage.getItem("user") || '{}');
   if (user.id) {
-        const parsedUser = user;
+      const parsedUser = user;
       this.currentUserId = parsedUser.id; 
   }
   this.loadBlogs();

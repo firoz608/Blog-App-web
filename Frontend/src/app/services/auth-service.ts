@@ -19,19 +19,30 @@ export class AuthService {
     return this.http.post(this.apiUrl+"/api/auth/login", credentials);
     
   }
-  //update profile
-  updateProfilepicture(id:number,data:any){
-     return this.http.post<any>(`${this.apiUrl}/api/auth/uploads/profile/${id}`, data);
-  }
-  //get profilepic
-  getprofilepic(id:number){
-      return this.http.get(`${this.apiUrl}/api/auth/profile-picture/${id}`, {
-    responseType: 'blob'
-  });
-  }
+
+updateProfileImage(id: number, imageUrl: string) {
+  return this.http.put(
+    `${this.apiUrl}/api/auth/update/profile-image/${id}`,
+    JSON.stringify(imageUrl),
+    {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+  );
+}
+
   updateName(id: number, data: any) {
   return this.http.put<any[]>(`${this.apiUrl}/api/auth/update/name/${id}`, data);
 }
+
+//get profilepic
+ getprofilepic(id:number){
+  return this.http.get<any>(
+    `${this.apiUrl}/api/auth/profile-picture/${id}`
+  );
+}
+
   // SAVE TOKEN
   saveToken(token: string) {
     localStorage.setItem("token", token);

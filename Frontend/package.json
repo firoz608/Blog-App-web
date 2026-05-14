@@ -29,6 +29,7 @@
     "@fortawesome/angular-fontawesome": "^3.0.0",
     "@fortawesome/free-brands-svg-icons": "^7.0.0",
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
+    "@supabase/supabase-js": "^2.105.1",
     "@tailwindcss/postcss": "^4.1.18",
     "angular-feather": "^6.5.1",
     "feather-icons": "^4.29.2",

@@ -19,7 +19,7 @@
       <div class="posts-grid">
         <div class="mini-card" *ngFor="let blog of blogPosts">
 
-          <img [src]="blog?.image ? apiUrl + blog.image : 'assets/default-upld-image2.png'" alt="">
+          <img [src]="blog?.image || 'assets/default-upld-image2.png'" alt="">
           <div class="mini-card-body">
             <div class="mini-cat">{{blog.title}}</div>
             <div class="mini-title">{{blog.content}}</div>
@@ -43,7 +43,7 @@
       <div class="overlay" *ngIf="showPopup">
         <div class="popup">
 
-          <h2>Write Blog</h2>
+          <h2>Update Blog</h2>
 
           <form [formGroup]="blogForm" (ngSubmit)="submitBlog()">
 
@@ -68,7 +68,7 @@
             </div>
 
             <div class="btns">
-              <button type="submit" class="btn-ghost2" (click)="submitBlog()">Publish</button>
+              <button type="submit" class="btn-ghost2">Update</button>
               <button type="button" class="btn-ghost2" (click)="closePopup()">Cancel</button>
             </div>
 

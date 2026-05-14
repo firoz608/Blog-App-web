@@ -106,13 +106,13 @@
           <span>✍️</span> New post published!
         </div>
         <div class="hero-card-main" *ngIf="latestBlog ">
-          <img [src]="latestBlog?.image ? apiUrl + latestBlog.image : 'assets/default-upld-image2.png'" alt="">
+          <img [src]="latestBlog?.image || 'assets/default-upld-image2.png'" alt="">
 
           <div class="hero-card-body">
             <span class="hero-card-tag">{{latestBlog.title}}</span>
             <div class="hero-card-title">{{latestBlog.content}}</div>
             <div class="hero-card-meta">
-              <img [src]=" latestblogprofileImage" alt="">
+              <img [src]=" latestBlog?.profileImage || 'assets/default-upld-image2.png'" alt="">
               <span>by {{latestBlog.author}} ❤️ {{latestBlog.likes}}</span>
             </div>
           </div>
@@ -174,7 +174,7 @@
       </div>
       <div class="posts-grid">
         <div class="mini-card" *ngFor="let blog of blogPosts">
-          <img [src]="blog?.image ? apiUrl + blog.image : 'assets/default-upld-image2.png'" alt="">
+          <img [src]="blog?.image || 'assets/default-upld-image2.png'" alt="">
           <div class="mini-card-body">
             <div class="mini-cat">{{blog.title}}</div>
             <div class="mini-title">{{blog.content}}</div>

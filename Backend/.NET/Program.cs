@@ -4,17 +4,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ SQL Server Connection
+// ✅ SUPABASE PostgreSQL (IMPORTANT CHANGE)
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(
+    options.UseNpgsql(
         builder.Configuration.GetConnectionString("Default")
     )
 );
 
-// ✅ JWT Authentication
+// ✅ JWT
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 .AddJwtBearer(options =>
 {
@@ -25,12 +24,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? "THIS_IS_DEFAULT_KEY")
+            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!)
         )
     };
 });
 
-// ✅ CORS (Angular)
+// ✅ CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular", policy =>
@@ -41,32 +40,24 @@ builder.Services.AddCors(options =>
     });
 });
 
-// ✅ Controllers & Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// ✅ Development tools
 if (app.Environment.IsDevelopment())
 {
-    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// ✅ Middleware pipeline
 app.UseHttpsRedirection();
-
-app.UseStaticFiles();
-
+//app.UseStaticFiles();
 app.UseCors("AllowAngular");
 
-// ⚠️ ORDER MATTERS
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-
 app.Run();
