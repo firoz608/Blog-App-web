@@ -10,9 +10,6 @@ export class BlogService {
   private apiUrl = "https://localhost:7059";
   private saveApi = 'https://localhost:7059/api/BlogSave';
 
-
-
-
   // private apiUrl = "https://blog-app-web-f3av.onrender.com";
 // private saveApi = "https://blog-app-web-f3av.onrender.com/api/BlogSave";
 
