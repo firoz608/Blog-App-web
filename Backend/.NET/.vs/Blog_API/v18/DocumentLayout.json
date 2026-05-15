@@ -7,6 +7,14 @@
       "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\controllers\\likecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:controllers\\likecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -33,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\models\\blog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:models\\blog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9FDAA9F4-3038-4BDA-A617-501BEEF9DC6A}|Blog_API.csproj|c:\\users\\md firoz ahmad\\source\\repos\\blog_api\\models\\commentreaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -86,11 +90,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Dockerfile",
+              "RelativeDocumentMoniker": "Dockerfile",
+              "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Dockerfile",
+              "RelativeToolTip": "Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-05-15T05:46:24.064Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Blog.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Models\\Blog.cs",
               "RelativeDocumentMoniker": "Models\\Blog.cs",
@@ -102,7 +118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "CommentReaction.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Models\\CommentReaction.cs",
               "RelativeDocumentMoniker": "Models\\CommentReaction.cs",
@@ -114,7 +130,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "SavedBlog.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Models\\SavedBlog.cs",
               "RelativeDocumentMoniker": "Models\\SavedBlog.cs",
@@ -126,7 +142,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "user.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Models\\user.cs",
               "RelativeDocumentMoniker": "Models\\user.cs",
@@ -138,7 +154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -146,7 +162,8 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-05-12T16:36:15.896Z"
+              "WhenOpened": "2026-05-12T16:36:15.896Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -156,14 +173,14 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAmwD0AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-12T16:36:15.87Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "BlogController.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Controllers\\BlogController.cs",
               "RelativeDocumentMoniker": "Controllers\\BlogController.cs",
@@ -175,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
@@ -187,7 +204,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "CreateBlogDto.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\DTO\\CreateBlogDto.cs",
               "RelativeDocumentMoniker": "DTO\\CreateBlogDto.cs",
@@ -199,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "likeController.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Controllers\\likeController.cs",
               "RelativeDocumentMoniker": "Controllers\\likeController.cs",
@@ -211,7 +228,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Comment.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Models\\Comment.cs",
               "RelativeDocumentMoniker": "Models\\Comment.cs",
@@ -223,7 +240,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "BlogLike.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Models\\BlogLike.cs",
               "RelativeDocumentMoniker": "Models\\BlogLike.cs",
@@ -235,7 +252,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "AddCommentDto.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\DTO\\AddCommentDto.cs",
               "RelativeDocumentMoniker": "DTO\\AddCommentDto.cs",
@@ -247,7 +264,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
@@ -259,7 +276,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "CommentReactionController.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Controllers\\CommentReactionController.cs",
               "RelativeDocumentMoniker": "Controllers\\CommentReactionController.cs",
@@ -271,7 +288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "CommentController.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Controllers\\CommentController.cs",
               "RelativeDocumentMoniker": "Controllers\\CommentController.cs",
@@ -283,7 +300,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "BlogSaveController.cs",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Controllers\\BlogSaveController.cs",
               "RelativeDocumentMoniker": "Controllers\\BlogSaveController.cs",
@@ -295,7 +312,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "Blog_API.csproj",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Blog_API.csproj",
               "RelativeDocumentMoniker": "Blog_API.csproj",
@@ -307,7 +324,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\MD FIROZ AHMAD\\source\\repos\\Blog_API\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
