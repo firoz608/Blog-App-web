@@ -57,7 +57,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
+builder.WebHost.UseUrls("http://0.0.0.0:8080");
 //app.UseStaticFiles();
 app.UseCors("AllowAll");
 
