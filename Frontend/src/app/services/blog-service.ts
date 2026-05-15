@@ -7,8 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class BlogService {
   constructor(private http: HttpClient) { }
-  // private apiUrl = "https://localhost:7059";
-  // private saveApi = 'https://localhost:7059/api/BlogSave';
 
   private apiUrl = "https://blog-app-web-1lat.onrender.com";
 private saveApi = "https://blog-app-web-1lat.onrender.com/api/BlogSave";

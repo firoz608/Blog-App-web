@@ -13,8 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AllPosts {
 constructor(private _router: Router,private _blogService:BlogService) { }
-  // apiUrl = 'https://blog-app-web-f3av.onrender.com';
-  apiUrl='https://localhost:7059';
+  apiUrl = 'https://blog-app-web-1lat.onrender.com';
   blogposts:any[]=[];
   ngOnInit(){
     this.loadblog();

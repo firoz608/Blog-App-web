@@ -34,7 +34,7 @@ export class Dashboard {
 
   constructor(private fb: FormBuilder, private _blogservice: BlogService, private _router: Router, private authService: AuthService, private _shared: Shared, private storageService: SupabaseStorageService, private supabaseService: SupabaseService) { }
   apiUrl = 'https://blog-app-web-1lat.onrender.com';
-  // apiUrl = "https://localhost:7059";
+
   write = faPen;
   search = faSearch;
   user = faUser;

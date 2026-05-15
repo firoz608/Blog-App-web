@@ -7,14 +7,13 @@ import { Router, RouterLink } from '@angular/router';
   selector: 'app-saved-blog',
   imports: [
     CommonModule,
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './saved-blog.html',
   styleUrl: './saved-blog.css',
 })
 export class SavedBlog {
-  // apiUrl='https://blog-app-web-f3av.onrender.com';
-  apiUrl='https://localhost:7059';
+  apiUrl = 'https://blog-app-web-1lat.onrender.com';
   blogposts:any[]=[];
   currentUserId: number = 0;
   constructor(private _blogservice: BlogService,private _router:Router) { }

@@ -16,8 +16,7 @@ import { SupabaseService } from '../../../services/supabase.service';
   styleUrl: './manageblog.css',
 })
 export class Manageblog {
-  // apiUrl='https://blog-app-web-f3av.onrender.com';
-  apiUrl='https://localhost:7059';
+ apiUrl = 'https://blog-app-web-1lat.onrender.com';
   blogPosts: any[] = [];
   blogForm!: FormGroup;
   isProfileMenuOpen: boolean = false;

@@ -15,8 +15,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './comments.css',
 })
 export class Comments {
-  // apiUrl = "https://blog-app-web-f3av.onrender.com";
-  apiUrl='https://localhost:7059';
+  
+  apiUrl = 'https://blog-app-web-1lat.onrender.com';
   blogPost: any[] = [];
   blogId: number = 0;
   comments: any[] = [];

@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
 
-  apiUrl: 'https://localhost:7059',
+  apiUrl: 'https://blog-app-web-1lat.onrender.com',
 
   supabaseUrl: 'https://tpummaulrgjosvehqwke.supabase.co',
 

@@ -12,8 +12,7 @@ import { Router } from '@angular/router';
   styleUrl: './likedblog.css',
 })
 export class Likedblog {
-  // apiUrl='https://blog-app-web-f3av.onrender.com';
-  apiUrl='https://localhost:7059';
+ apiUrl = 'https://blog-app-web-1lat.onrender.com';
 blogposts:any[]=[];
   currentUserId: number = 0;
 
