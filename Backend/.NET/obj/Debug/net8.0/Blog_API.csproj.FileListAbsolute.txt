@@ -113,7 +113,6 @@ C:\Users\MD FIROZ AHMAD\source\repos\Blog_API\obj\Debug\net8.0\refint\Blog_API.d
 C:\Users\MD FIROZ AHMAD\source\repos\Blog_API\obj\Debug\net8.0\Blog_API.pdb
 C:\Users\MD FIROZ AHMAD\source\repos\Blog_API\obj\Debug\net8.0\Blog_API.genruntimeconfig.cache
 C:\Users\MD FIROZ AHMAD\source\repos\Blog_API\obj\Debug\net8.0\ref\Blog_API.dll
-C:\Users\MD FIROZ AHMAD\source\repos\Blog_API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\MD FIROZ AHMAD\source\repos\Blog_API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\MD FIROZ AHMAD\source\repos\Blog_API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\MD FIROZ AHMAD\source\repos\Blog_API\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
